@@ -12,17 +12,21 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 1rem;
+    padding: 1.5rem 1rem 1rem;
   }
   .app {
     text-align: center;
     max-width: 420px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
   }
   h1 {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -30,27 +34,28 @@
     color: #fff;
   }
   .sub {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 2rem;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 1.2rem;
     letter-spacing: 0.05em;
   }
   .mode-row {
     display: flex;
     gap: 6px;
     justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
   }
   .mode-btn {
-    padding: 5px 14px;
+    padding: 6px 16px;
     border-radius: 999px;
     border: 1px solid #333;
     background: transparent;
     color: #888;
-    font-size: 12px;
+    font-size: 13px;
     cursor: pointer;
     transition: all .15s;
+    flex: 1;
   }
   .mode-btn.active {
     border-color: #fff;
@@ -60,8 +65,9 @@
   .options-wrap {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 1rem;
+    gap: 6px;
+    margin-bottom: 0.8rem;
+    width: 100%;
   }
   .opt-row {
     display: flex;
@@ -71,13 +77,12 @@
   .opt-input {
     flex: 1;
     padding: 9px 14px;
-    font-size: 14px;
+    font-size: 15px;
     border-radius: 8px;
     border: 1px solid #2a2a2a;
     background: #111;
     color: #f0f0f0;
     outline: none;
-    transition: border .15s;
   }
   .opt-input:focus { border-color: #555; }
   .del-btn {
@@ -88,7 +93,6 @@
     color: #555;
     font-size: 16px;
     cursor: pointer;
-    transition: all .15s;
     flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
   }
@@ -101,25 +105,26 @@
     border-radius: 8px;
     padding: 7px 14px;
     cursor: pointer;
-    margin-bottom: 1rem;
-    transition: all .15s;
+    margin-bottom: 0.8rem;
     width: 100%;
   }
-  .add-btn:hover { color: #aaa; border-color: #555; }
   .dice-grid {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 6px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
+    width: 100%;
   }
   .dice-cell {
-    padding: 9px 4px;
-    font-size: 13px;
+    padding: 10px 4px;
+    font-size: 15px;
     border-radius: 8px;
     border: 1px solid #2a2a2a;
     background: #111;
     color: #f0f0f0;
     text-align: center;
     outline: none;
+    width: 100%;
   }
   .go-btn {
     padding: 14px 0;
@@ -134,22 +139,20 @@
     letter-spacing: 0.05em;
     text-transform: uppercase;
     transition: all .15s;
-    margin-bottom: 0.5rem;
   }
   .go-btn:hover { background: #1a1a1a; border-color: #555; }
   .go-btn:active { transform: scale(0.98); }
   .stage {
-    margin: 1.5rem auto 0;
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    margin: 0.8rem auto 0;
   }
   .baton {
-    width: 170px;
-    height: 170px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
     transition: opacity .2s, transform .2s;
     mix-blend-mode: lighten;
@@ -164,29 +167,29 @@
   }
   .baton.thinking { animation: wobble .4s ease-in-out 3; }
   .result-text {
-    margin-top: 12px;
-    font-size: 24px;
+    margin-top: 8px;
+    font-size: 22px;
     font-weight: 700;
     color: #fff;
-    min-height: 36px;
+    min-height: 32px;
     transition: opacity .25s;
-    letter-spacing: 0.03em;
   }
   .result-text.fade { opacity: 0; }
   .result-label {
-    font-size: 12px;
+    font-size: 11px;
     color: #555;
-    margin-top: 6px;
-    min-height: 20px;
+    margin-top: 4px;
+    min-height: 18px;
     letter-spacing: 0.04em;
   }
   .history-wrap {
-    margin-top: 1.5rem;
+    margin-top: 0.8rem;
+    width: 100%;
   }
   .history-label {
-    font-size: 11px;
+    font-size: 10px;
     color: #444;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
   }
@@ -206,17 +209,18 @@
   }
   .etsy-link {
     display: inline-block;
-    margin-top: 2.5rem;
-    font-size: 11px;
-    color: #444;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 12px;
+    color: #f97316;
     text-decoration: none;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid #f97316;
     padding-bottom: 2px;
-    transition: color .15s;
+    transition: opacity .15s;
   }
-  .etsy-link:hover { color: #888; }
+  .etsy-link:hover { opacity: 0.7; }
 </style>
 </head>
 <body>
@@ -308,7 +312,6 @@ function renderOptions() {
   } else if (mode === 6) {
     const grid = document.createElement('div');
     grid.className = 'dice-grid';
-    grid.style.gridTemplateColumns = 'repeat(3, 1fr)';
     for (let i = 1; i <= 6; i++) {
       const inp = document.createElement('input');
       inp.className = 'dice-cell';
